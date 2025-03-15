@@ -3,3 +3,126 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #353535;
+    --secondary-color: #ffffff; 
+    --accent-color: #000000; 
+    --text-color: #000000; 
+    --background-color: #f9f9f9; 
+    --shadow-color: rgba(0, 0, 0, 0.1); 
+    --white: #ffffff; 
+}
+
+.body-title {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Karla', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
+    color: var(--text-color);
+    
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(2px 2px 4px var(--shadow-color)); 
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--white);
+}
+
+.header-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 5vh auto;
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color); 
+    gap: 20px;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.5); 
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--secondary-color); 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--white);
+    border-radius: 8px
+}

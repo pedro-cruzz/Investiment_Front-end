@@ -1,7 +1,37 @@
+# Ignorar a pasta node_modules (não deve ser enviada ao Git)
 node_modules/
-logs/
+
+# Ignorar arquivos de configuração do npm/Node.js
+package-lock.json
+package.json
+
+# Ignorar arquivos de configuração do IDE
+.vscode/
+.settings/
+
+# Ignorar arquivos de cache e logs
+.npm/
+.cache/
+*.log
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de teste e configurações específicas
+test/
+.jshintrc
+.npmignore
+
+# Ignorar arquivos de build ou temporários
 dist/
 build/
-.env
-.vscode/
-.idea/
+.temp/
+
+# Ignorar arquivos de configuração local
+.eslintcache
+.prettierrc
+
+# Ignorar arquivos específicos do projeto (se necessário)
+modal/
+scripts/.gitignore

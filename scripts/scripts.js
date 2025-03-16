@@ -3,26 +3,19 @@
 let editingIndex = null;
 
 // Funções para abrir/fechar o modal e limpar campos
-const openModal = () => {
-    document.getElementById('modal').classList.add('active');
-};
-
+const openModal = () => document.getElementById('modal').classList.add('active');
 const closeModal = () => {
     document.getElementById('modal').classList.remove('active');
     editingIndex = null;
     clearModalFields();
 };
-
 const clearModalFields = () => {
-    document.getElementById('nome').value = '';
-    document.getElementById('tipo').value = '';
-    document.getElementById('valor').value = '';
-    document.getElementById('data').value = '';
+    ['nome', 'tipo', 'valor', 'data'].forEach(id => document.getElementById(id).value = '');
 };
 
 // Função para salvar investimento no localStorage
 const saveInvestment = (investment) => {
-    const dbInvestment = JSON.parse(localStorage.getItem('dbInvestment')) || [];
+    const dbInvestment = readInvestment();
     if (editingIndex !== null) {
         dbInvestment[editingIndex] = investment;
     } else {
@@ -61,12 +54,8 @@ const updateTable = () => {
 
 // Função para editar investimento
 const editInvestment = (index) => {
-    const dbInvestment = readInvestment();
-    const investment = dbInvestment[index];
-    document.getElementById('nome').value = investment.nome;
-    document.getElementById('tipo').value = investment.tipo;
-    document.getElementById('valor').value = investment.valor;
-    document.getElementById('data').value = investment.data;
+    const investment = readInvestment()[index];
+    ['nome', 'tipo', 'valor', 'data'].forEach(id => document.getElementById(id).value = investment[id]);
     editingIndex = index;
     openModal();
 };
@@ -82,24 +71,21 @@ const deleteInvestment = (index) => {
 
 // Função para validar os campos do formulário
 const validateForm = () => {
-    const nome = document.getElementById('nome').value.trim();
-    const tipo = document.getElementById('tipo').value.trim();
-    const valor = document.getElementById('valor').value.trim();
-    const data = document.getElementById('data').value.trim();
+    const fields = ['nome', 'tipo', 'valor', 'data'];
+    const values = fields.map(id => document.getElementById(id).value.trim());
 
-    // Verificar campos obrigatórios
-    if (!nome || !tipo || !valor || !data) {
+    if (values.some(value => !value)) {
         alert('Por favor, preencha todos os campos obrigatórios.');
         return false;
     }
 
-    // Verificar se o valor é numérico e maior que zero
+    const [nome, tipo, valor, data] = values;
+
     if (isNaN(valor) || parseFloat(valor) <= 0) {
         alert('Por favor, insira um valor numérico válido maior que zero.');
         return false;
     }
 
-    // Verificar o formato da data (YYYY-MM-DD)
     const regexData = /^\d{4}-\d{2}-\d{2}$/;
     if (!regexData.test(data)) {
         alert('Por favor, insira uma data válida no formato YYYY-MM-DD.');
@@ -124,8 +110,6 @@ document.getElementById('salvar').addEventListener('click', (event) => {
 
     saveInvestment(investment);
     updateTable();
-    closeModal(); 
-    alert(editingIndex !== null ? 'Investimento atualizado com sucesso!' : 'Investimento cadastrado com sucesso!');
 });
 
 // Função para cancelar e fechar o modal
@@ -140,4 +124,5 @@ document.getElementById('cadastrarInvestimento').addEventListener('click', () =>
 // Função para fechar o modal ao clicar no botão de fechar (×)
 document.getElementById('modalClose').addEventListener('click', closeModal);
 
-// Função para emitir alertas de sucesso, erro e editado
+// Função para fechar o modal ao clicar em salvar
+document.getElementById('salvar').addEventListener('click', closeModal);

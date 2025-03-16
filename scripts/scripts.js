@@ -1,5 +1,6 @@
 'use strict';
 
+const fields = ['name', 'type', 'value', 'date'];
 let editingIndex = null;
 
 // Funções para abrir/fechar o modal e limpar campos
@@ -10,7 +11,7 @@ const closeModal = () => {
     clearModalFields();
 };
 const clearModalFields = () => {
-    ['nome', 'tipo', 'valor', 'data'].forEach(id => document.getElementById(id).value = '');
+    fields.forEach(id => document.getElementById(id).value = '');
 };
 
 // Função para salvar investimento no localStorage
@@ -36,10 +37,10 @@ const updateTable = () => {
     dbInvestment.forEach((investment, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${investment.nome}</td>
-            <td>${investment.tipo}</td>
-            <td>R$ ${parseFloat(investment.valor).toFixed(2)}</td>
-            <td>${investment.data}</td>
+            <td>${investment.name}</td>
+            <td>${investment.type}</td>
+            <td>R$ ${parseFloat(investment.value).toFixed(2)}</td>
+            <td>${investment.date}</td>
             <td>
                 <button class="button green" onclick="editInvestment(${index})">Editar</button>
                 <button  class="button red" 
@@ -56,7 +57,7 @@ const updateTable = () => {
 // Função para editar investimento
 const editInvestment = (index) => {
     const investment = readInvestment()[index];
-    ['nome', 'tipo', 'valor', 'data'].forEach(id => document.getElementById(id).value = investment[id]);
+    fields.forEach(id => document.getElementById(id).value = investment[id]);
     editingIndex = index;
     openModal();
 };
@@ -90,7 +91,6 @@ const deleteInvestment = (index) => {
 
 // Função para validar os campos do formulário
 const validateForm = () => {
-    const fields = ['nome', 'tipo', 'valor', 'data'];
     const values = fields.map(id => document.getElementById(id).value.trim());
 
     if (values.some(value => !value)) {
@@ -98,15 +98,15 @@ const validateForm = () => {
         return false;
     }
 
-    const [,, valor, data] = values;
+    const [,, value, date] = values;
 
-    if (isNaN(valor) || parseFloat(valor) <= 0) {
+    if (isNaN(value) || parseFloat(value) <= 0) {
         alert('Por favor, insira um valor numérico válido maior que zero.');
         return false;
     }
 
     const regexData = /^\d{4}-\d{2}-\d{2}$/;
-    if (!regexData.test(data)) {
+    if (!regexData.test(date)) {
         alert('Por favor, insira uma data válida no formato YYYY-MM-DD.');
         return false;
     }
@@ -121,10 +121,10 @@ document.getElementById('salvar').addEventListener('click', (event) => {
     if (!validateForm()) return;
 
     const investment = {
-        nome: document.getElementById('nome').value,
-        tipo: document.getElementById('tipo').value,
-        valor: document.getElementById('valor').value,
-        data: document.getElementById('data').value
+        name: document.getElementById('name').value,
+        type: document.getElementById('type').value,
+        value: document.getElementById('value').value,
+        date: document.getElementById('date').value
     };
 
     saveInvestment(investment);

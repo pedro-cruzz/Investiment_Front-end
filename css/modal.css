@@ -20,7 +20,6 @@
 
 .modal-content{
     border-radius: 10px;
-    align-items: center;
     display: flex;
     flex-direction: column;
     gap:20px;
@@ -34,13 +33,10 @@
 .modal-header{
     display: flex;
     position: relative;
-    justify-content: center;
     height: 40px;
     line-height: 40px;
     font-size: 1rem;
 }
-
-
 
 .modal-close{
     position: absolute;
@@ -59,12 +55,14 @@
 }
 
 .modal-form{
-    text-justify: center;
+    text-align: left;
+    text-justify: right;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
     padding: 0 20px;
+    margin: 0 auto; 
 }
 
 .modal-field{
@@ -82,11 +80,18 @@
     box-shadow: 0 0 3px var(--primary-color);
 }
 
-
 .modal-footer{
+    align-items: right;
     background-color: inherit;
     text-align: right;
     padding: 0 20px;
+}
+
+.modal-label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
 @media (max-width:480px){

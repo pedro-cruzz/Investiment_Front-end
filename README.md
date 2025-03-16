@@ -6,9 +6,9 @@ Desenvolvido com **HTML**, **CSS** e **JavaScript**. Permite adicionar, visualiz
 
 ## 🚀 Como Usar
 
-1. **Adicionar Investimento**: Clique no botão "Cadastrar Investimento" para abrir o modal e preencher os detalhes.
-2. **Editar ou Excluir**: Use os botões "Editar" ou "Excluir" na tabela para gerenciar seus investimentos.
-3. **Salvar Localmente**: Os dados são salvos no navegador, então você não perde suas informações ao fechar a página.
+- **Adicionar Investimento**: Clique no botão "Cadastrar Investimento" para abrir o modal e preencher os detalhes.
+- **Editar ou Excluir**: Use os botões "Editar" ou "Excluir" na tabela para gerenciar seus investimentos.
+- **Salvar Localmente**: Os dados são salvos no navegador, então você não perde suas informações ao fechar a página.
 
 ---
 

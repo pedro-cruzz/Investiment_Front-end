@@ -1,6 +1,6 @@
 # Gerenciador de Investimentos 💰
 
-Um gerenciador de investimentos simples e prático, desenvolvido com **HTML**, **CSS** e **JavaScript**. Permite adicionar, visualizar e gerenciar investimentos de forma fácil e organizada. O uso de um **modal** torna a experiência mais interativa.
+Desenvolvido com **HTML**, **CSS** e **JavaScript**. Permite adicionar, visualizar e gerenciar investimentos de forma fácil e organizada. O uso de um **modal** torna a experiência mais interativa.
 
 ---
 

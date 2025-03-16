@@ -38,7 +38,7 @@ Opção 1:
 
 -Clone o repositório:
 
-```bash```
+```bash
    git clone https://github.com/pedro-cruzz/Investiment_Front-end.git
 
 Opção 2:

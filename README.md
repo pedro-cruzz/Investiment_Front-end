@@ -23,6 +23,9 @@ Desenvolvido com **HTML**, **CSS** e **JavaScript**. Permite adicionar, visualiz
 
 ### 📋 Pré-requisitos
 
+Antes de começar, certifique-se de que você tem o seguinte instalado:
+- [Node.js](https://nodejs.org/) (v16 ou superior recomendado)
+- [npm](https://www.npmjs.com/) (vem com o Node.js)
 - Um navegador moderno (Chrome, Firefox, Edge, etc.).
 - Um editor de código (VS Code, Sublime Text, etc.).
 
@@ -54,13 +57,20 @@ Opção 2:
 - Abra o Visual Studio Code (VS Code).
 - No menu, clique em File > Open Folder e selecione a pasta do projeto (Investment_Front-End).
 
-**3. Use a Extensão Live Server**
+**3.Instalar Dependências**
+
+- Instale todas as dependências necessárias usando o npm:
+```bath
+npm install
+```
+
+**4. Use a Extensão Live Server**
 
 - Instale a extensão Live Server no VS Code:
 - Acesse a aba Extensions (ou pressione Ctrl+Shift+X).
 - Pesquise por "Live Server" e clique em Install.
 
-**4. Use a Aplicação:**
+**5. Use a Aplicação:**
 
 - Assim que o arquivo index.html for aberto no navegador, você verá a interface do gerenciador de investimentos.
 - Use o botão "Cadastrar Investimento" para adicionar novos investimentos.

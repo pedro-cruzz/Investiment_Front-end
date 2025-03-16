@@ -69,7 +69,7 @@ Opção 2:
 ---
 
 ## ✒️ Autor
-Seu Nome - https://github.com/pedro-cruzz
+Pedro - [git hub](https://github.com/pedro-cruzz)
 
 
 

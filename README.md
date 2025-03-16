@@ -1,8 +1,5 @@
 # Gerenciador de Investimentos 💰
 
-![Badge](https://img.shields.io/badge/Status-Concluído-success)
-![Badge](https://img.shields.io/badge/Licença-MIT-blue)
-
 Um gerenciador de investimentos simples e prático, desenvolvido com **HTML**, **CSS** e **JavaScript**. Permite adicionar, visualizar e gerenciar investimentos de forma fácil e organizada. O uso de um **modal** torna a experiência mais interativa.
 
 ---

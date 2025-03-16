@@ -36,12 +36,11 @@ Siga os passos abaixo para rodar o projeto localmente na sua máquina.
 
 Opção 1:
 
--Clone o repositório:
+- Clone o Repositório
 
 ```bath
 git clone https://github.com/pedro-cruzz/Investiment_Front-end.git
 ```
-  
 
 Opção 2:
 

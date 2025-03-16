@@ -42,7 +42,8 @@ const updateTable = () => {
             <td>${investment.data}</td>
             <td>
                 <button class="button green" onclick="editInvestment(${index})">Editar</button>
-                <button class="button red" onclick="deleteInvestment(${index})">Excluir</button>
+                <button  class="button red" 
+                onclick="deleteInvestment(${index})"">Excluir</button>
             </td>
         `;
         tbody.appendChild(row);
@@ -61,12 +62,30 @@ const editInvestment = (index) => {
 };
 
 // Função para excluir investimento
+// Função para excluir investimento com confirmação
 const deleteInvestment = (index) => {
-    const dbInvestment = readInvestment();
-    dbInvestment.splice(index, 1);
-    localStorage.setItem('dbInvestment', JSON.stringify(dbInvestment));
-    updateTable();
-    alert('Investimento excluído com sucesso!');
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Você não poderá reverter isso!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const dbInvestment = readInvestment();
+            dbInvestment.splice(index, 1);
+            localStorage.setItem('dbInvestment', JSON.stringify(dbInvestment));
+            updateTable();
+            Swal.fire({
+                title: "Excluído!",
+                text: "Seu investimento foi excluído.",
+                icon: "success",
+            });
+        }
+    });
 };
 
 // Função para validar os campos do formulário
@@ -79,7 +98,7 @@ const validateForm = () => {
         return false;
     }
 
-    const [nome, tipo, valor, data] = values;
+    const [,, valor, data] = values;
 
     if (isNaN(valor) || parseFloat(valor) <= 0) {
         alert('Por favor, insira um valor numérico válido maior que zero.');
@@ -126,3 +145,29 @@ document.getElementById('modalClose').addEventListener('click', closeModal);
 
 // Função para fechar o modal ao clicar em salvar
 document.getElementById('salvar').addEventListener('click', closeModal);
+
+function alertaSalvar() {
+    if (validateForm()) {
+        Swal.fire({
+            title: "Sucesso!",
+            text: "O investimento foi cadastrado!",
+            icon: "success",
+            draggable: true
+        });
+    } else {
+        Swal.fire({
+            title: "Erro!",
+            text: "Por favor, preencha todos os campos obrigatórios corretamente.",
+            icon: "error",
+        });
+    }
+}
+
+function alertaCancelar() {
+    Swal.fire({
+        title: "Cancelado!",
+        text: "O cadastro foi cancelado!",
+        icon: "error",
+    });
+}
+

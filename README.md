@@ -63,6 +63,12 @@ Opção 2:
 ```bath
 npm install
 ```
+- Verifique se o arquivo package.json foi criado.
+- Caso não foi criado, use o comando sehuinte para criar:
+```bath
+npm create -y
+```
+- Repita o comando para instalar as dependências
 
 **4. Use a Extensão Live Server**
 

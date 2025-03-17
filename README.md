@@ -64,7 +64,7 @@ Opção 2:
 npm install
 ```
 - Verifique se o arquivo package.json foi criado.
-- Caso não foi criado, use o comando sehuinte para criar:
+- Caso não foi criado, use o comando seguinte para criar:
 ```bath
 npm create -y
 ```
